@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {onError} from "@apollo/client/link/error"
 import {ApolloClient,InMemoryCache,ApolloProvider,HttpLink,from} from "@apollo/client"
+import { ChakraProvider } from '@chakra-ui/react'
+import {BrowserRouter} from "react-router-dom"
 
 //error catching system from Graphql
 const errorLink = onError(({graphqlErrors,networkError})=>{
@@ -28,7 +30,11 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={client}>
+    <BrowserRouter>
+    <ChakraProvider>
     <App />
+    </ChakraProvider>
+    </BrowserRouter>
   </ApolloProvider>
   
 );
