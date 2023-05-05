@@ -3,8 +3,7 @@
     color:  #FFFFFF;
     width: 15%;
     height: 100vh;
-    /* border: 1px solid white; */
-    
+    padding: 20px;
 }
 
 .logo{
@@ -12,10 +11,45 @@
     position: absolute;
     width: 131.53px ;
     height: 39.41px;
-    left: 0.71%;
+    left: 10%;
     right: 0.71%;
-    top: 1.18%;
+    top: 3%;
     bottom: 0.29%;
     
 
+}
+
+.nav{
+    
+    width: 100px;
+    height: 32px;
+    /* font-family: 'Basier Circle'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navBox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    position: absolute;
+    width: 150px;
+    height: 176px;
+    left: 32px;
+    top: 102px;
+
+}
+
+.footer{
+    position: fixed;
+    bottom: 4px;
 }

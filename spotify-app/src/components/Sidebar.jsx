@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from "./Sidebar.module.css"
 import {IconButton,Box,CloseButton,Flex,Icon,useColorModeValue,Link,Drawer,DrawerContent,Text,useDisclosure,BoxProps,FlexProps, VStack,} from '@chakra-ui/react';
+import { Avatar, AvatarBadge, AvatarGroup ,Wrap,WrapItem} from '@chakra-ui/react'
 import {NavLink} from "react-router-dom"
 
 const SidebarLinks = [
@@ -11,11 +12,10 @@ const SidebarLinks = [
 ]
 
 export default function SimpleSidebar({ children }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  
   return (
     <Box minH="100vh" >
       <Sidebar
-        onClose={() => onClose}
         display={{ base: 'none', md: 'block' }}
       />
       {/* <Drawer autoFocus={false}
@@ -39,28 +39,40 @@ export default function SimpleSidebar({ children }) {
 }
 
 
-const Sidebar = ({ onClose, ...rest }) => {
-
+const Sidebar = () => {
   
   return (
    
     <Box className={Styles.Sidebar}
-      borderRight="1px"
-      pos="fixed"
-      
-      {...rest}>
+      pos="fixed">
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        
+        <Box w={"90%"} p={"10px"}>
         <img className={Styles.logo} src='https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png' alt='spotify' 
         />
+        </Box>
         
         {/* <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} /> */}
       </Flex>
+      <Box className={Styles.navBox}>
       {SidebarLinks.map((el,i) => (
         <VStack key={i}>
-            <NavLink to={el.path}>{el.name}</NavLink>
+            <NavLink to={el.path} style={({isActive})=>{
+          return isActive ? {opacity:"100"}:{opacity:0.4}
+        }} >
+              <Text className={Styles.nav}>{el.name}</Text>
+            </NavLink>
         </VStack>
       ))}
+      </Box>
+
+      <Box className={Styles.footer}>
+        <Wrap>
+          <WrapItem>
+            <Avatar  name='Dan Abrahmov' src='https://bit.ly/code-beast' />
+          </WrapItem>
+        </Wrap>
+      </Box>
+     
     </Box>
   )
 }
