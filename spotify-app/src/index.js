@@ -3,39 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {onError} from "@apollo/client/link/error"
-import {ApolloClient,InMemoryCache,ApolloProvider,HttpLink,from} from "@apollo/client"
 import { ChakraProvider } from '@chakra-ui/react'
 import {BrowserRouter} from "react-router-dom"
+import {ApolloProvider} from "@apollo/client"
+import client from './apollo';
 
-//error catching system from Graphql
-const errorLink = onError(({graphqlErrors,networkError})=>{
-  if(graphqlErrors){
-      graphqlErrors.map(({message,location,path})=>{
-        alert(`graphql Error ${message}`)
-      })
-  }
-})
-
-const link = from([
-   errorLink, //if there is any error , we are telling how to respond to the error
-   new HttpLink({uri:"https://api.ss.dev/resource/api"})
-])
-
-const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: link
-})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ApolloProvider client={client}>
+   <ApolloProvider client={client} >
     <BrowserRouter>
     <ChakraProvider>
     <App />
     </ChakraProvider>
     </BrowserRouter>
-  </ApolloProvider>
+   </ApolloProvider>
+  
   
 );
 

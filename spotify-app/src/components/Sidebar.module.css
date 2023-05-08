@@ -1,9 +1,11 @@
 .Sidebar{
     text-align: initial;
     color:  #FFFFFF;
+    background:"linear-gradient(160deg, rgba(34,3,2,1) 11%, rgba(1,0,2,1) 90%)" ;
     width: 15%;
-    height: 100vh;
+    /* height: 100vh;
     padding: 20px;
+     */
 }
 
 .logo{
@@ -41,7 +43,7 @@
     padding: 0px;
     gap: 16px;
 
-    position: absolute;
+    position: fixed;
     width: 150px;
     height: 176px;
     left: 32px;
