@@ -1,8 +1,9 @@
 import React from 'react'
 import Styles from "./Sidebar.module.css"
-import {IconButton,Box,CloseButton,Flex,Icon,useColorModeValue,Link,Drawer,DrawerContent,Text,useDisclosure,BoxProps,FlexProps, VStack,} from '@chakra-ui/react';
-import { Avatar, AvatarBadge, AvatarGroup ,Wrap,WrapItem,Image} from '@chakra-ui/react'
+import {IconButton,Box,CloseButton,Flex,Icon,useColorModeValue,Link,Drawer,DrawerContent,Text,useDisclosure,BoxProps,FlexProps,VStack} from '@chakra-ui/react';
+import { Avatar,Wrap,WrapItem} from '@chakra-ui/react'
 import {NavLink} from "react-router-dom"
+import {FiMenu} from 'react-icons/fi';
 
 const SidebarLinks = [
   {name:"For You", path:"/"},
@@ -19,19 +20,20 @@ export default function SimpleSidebar({ children }) {
         onClose={() => onClose}
         display={{ base: 'none', md: 'block' }}
       />
-      {/* <Drawer autoFocus={false}
+      <Drawer autoFocus={false}
         isOpen={isOpen}
         placement="left"
         onClose={onClose}
         returnFocusOnClose={false}
         onOverlayClick={onClose}
-        size="full">
+        isFullHeight
+        size="xs">
         <DrawerContent>
           <Sidebar onClose={onClose} />
         </DrawerContent>
       </Drawer>
-       */}
       
+      <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
       </Box>
@@ -45,7 +47,7 @@ const Sidebar = ({ onClose, ...rest }) => {
   return (
    
     <Box 
-         backgroundColor={"transparent"}
+         backgroundColor={{base:"black",lg:"transparent",xl:"transparent"}}
           w={{ base: "full", md: 60 }} 
           pos="fixed" 
           h="full" 
@@ -57,7 +59,7 @@ const Sidebar = ({ onClose, ...rest }) => {
         />
         </Box>
         
-        {/* <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} /> */}
+        <CloseButton display={{ base: 'flex', md: 'none' }} color={"white"} onClick={onClose} />
       </Flex>
       <Box className={Styles.navBox}>
       {SidebarLinks.map((el,i) => (
@@ -83,36 +85,22 @@ const Sidebar = ({ onClose, ...rest }) => {
   )
 }
 
-// const Sidebar = ({ onClose, ...rest }) => { 
-//   return ( 
-//     <Box 
-//       bgColor={"rgb(27,19,5)"} 
-//       color={"white"} 
-//       borderRight="1px" 
-//       borderRightColor={useColorModeValue("gray.200", "gray.700")} 
-//       w={{ base: "full", md: 60 }} 
-//       pos="fixed" 
-//       h="full" 
-//       {...rest} 
-//     > 
-//       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between"> 
-//         <Image src={"https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png"} bgColor={"red"} /> 
-//         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} /> 
-//       </Flex> 
-//       {SidebarLinks.map((item, index) => ( 
-//         <Text 
-//           key={index} 
-//           textAlign={"left"} 
-//           px={10} 
-//           py={2} 
-//           mt={2} 
-//           fontSize={"20px"} 
-//         > 
-//           <NavLink to={item.path}>{item.name}</NavLink> 
-//         </Text> 
-//       ))} 
-//     </Box> 
-//   ); 
-// }; 
+const MobileNav = ({ onOpen, ...rest }) => {
+  return (
+    <Flex
+      ml={{ base: 0, md: 60 }}
+      px={{ base: 4, md: 24 }}
+      height="20"
+      alignItems="center"
+      justifyContent="flex-start"
+      {...rest}>
+      <IconButton
+        variant="outline"
+        onClick={onOpen}
+        aria-label="open menu"
+        icon={<FiMenu />}
+      />
 
-// export default Sidebar
+    </Flex>
+  );
+};
