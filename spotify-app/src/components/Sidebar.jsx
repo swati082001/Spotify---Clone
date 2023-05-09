@@ -92,6 +92,8 @@ const MobileNav = ({ onOpen, ...rest }) => {
       px={{ base: 4, md: 24 }}
       height="20"
       alignItems="center"
+      pos={"sticky"}
+      top={"0px"}
       justifyContent="flex-start"
       {...rest}>
       <IconButton

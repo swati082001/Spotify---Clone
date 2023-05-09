@@ -16,11 +16,22 @@ const MusicPlayer = ({playlist,data,index,onChange}) => {
    useEffect(()=>{
     data.forEach((el,i)=>{
         if(el._id===playlist._id){
+          
             setCurrentSong(i)
-            // setIsPlaying(true)
+             setIsPlaying(true)
+          
         }
     })
    },[playlist])
+
+   useEffect(()=>{
+    data.forEach((el,i)=>{
+        if(el._id===playlist._id){
+             setCurrentSong(i)
+             setIsPlaying(false)
+          }
+    })
+   },[])
 
 
    
