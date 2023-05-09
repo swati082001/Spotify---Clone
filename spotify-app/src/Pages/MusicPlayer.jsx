@@ -17,16 +17,18 @@ const MusicPlayer = ({playlist,data,index,onChange}) => {
     data.forEach((el,i)=>{
         if(el._id===playlist._id){
             setCurrentSong(i)
-            setIsPlaying(true)
+            // setIsPlaying(true)
         }
     })
    },[playlist])
+
 
    
    useEffect(() => {
     audioRef.current.src = data[currentSong].url;
     audioRef.current.load();
   }, [currentSong, data]);
+  
 
   useEffect(() => {
     if (isPlaying) {
