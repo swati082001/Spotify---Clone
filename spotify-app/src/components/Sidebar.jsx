@@ -1,6 +1,6 @@
 import React from 'react'
 import Styles from "./Sidebar.module.css"
-import {IconButton,Box,CloseButton,Flex,Icon,useColorModeValue,Link,Drawer,DrawerContent,Text,useDisclosure,BoxProps,FlexProps,VStack} from '@chakra-ui/react';
+import {IconButton,Box,CloseButton,useFormControlContext,Flex,Drawer,DrawerContent,Text,useDisclosure,VStack} from '@chakra-ui/react';
 import { Avatar,Wrap,WrapItem} from '@chakra-ui/react'
 import {NavLink} from "react-router-dom"
 import {FiMenu} from 'react-icons/fi';
