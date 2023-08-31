@@ -3,7 +3,7 @@
 <h1>💫SPOTIFY MUSIC PLAYER💫</h1>
 <br/>
 
-
+Deployed Link - https://spotify-app-lime.vercel.app/
 ## DESCRIPTION✨
 
 - This is a music player application built using React JS and GraphQL. The interface matches the given design and is responsive for smaller screens. The application allows users to search for songs, play/pause, skip to next/previous tracks, and control music via a seeker. The background gradient color changes according to the cover image of the song as shown in the design.
@@ -78,6 +78,13 @@
 
 ## Screenshots 📷
 ---
+![first](https://user-images.githubusercontent.com/103181682/237053782-ad6dcd43-833b-4858-a102-38b932a34406.png)
+<br />
+<br />
+![second](https://user-images.githubusercontent.com/103181682/237053810-7ea41073-4383-4591-a1de-f4051942687d.png)
+
+<br /><br />
+![third](https://user-images.githubusercontent.com/103181682/237053833-47463040-bc7a-4c9d-be2a-8c5604b8003d.png)
 
 
 <h1 align="center">✨Thank You✨</h1>
