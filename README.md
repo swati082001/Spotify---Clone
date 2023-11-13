@@ -3,7 +3,7 @@
 <h1>💫SPOTIFY MUSIC PLAYER💫</h1>
 <br/>
 
-Deployed Link - https://spotify-app-lime.vercel.app/
+Deployed Link - https://swati-minispotify.netlify.app/
 ## DESCRIPTION✨
 
 - This is a music player application built using React JS and GraphQL. The interface matches the given design and is responsive for smaller screens. The application allows users to search for songs, play/pause, skip to next/previous tracks, and control music via a seeker. The background gradient color changes according to the cover image of the song as shown in the design.
